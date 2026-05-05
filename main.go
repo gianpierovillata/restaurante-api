@@ -1,7 +1,7 @@
 package main
 
 import (
-	services "restaurante-api/Services"
+	api "restaurante-api/Api"
 
 	"github.com/gin-gonic/gin"
 )
@@ -14,20 +14,11 @@ func main() {
 
 	})
 
-	router.GET("/comidas", func(c *gin.Context) {
+	router.GET("/comidas", api.GetComidas)
 
-		c.JSON(200, services.GetComidas())
-	})
+	router.GET("/proveedores", api.GetProveedores)
 
-	router.GET("/proveedores", func(c *gin.Context) {
+	router.GET("/cartas", api.GetCartas)
 
-		c.JSON(200, services.GetProveedores())
-	})
-
-	router.GET("/cartas", func(c *gin.Context) {
-
-		c.JSON(200, services.GetCartas())
-	})
-
-	router.Run()
+	router.Run(":8081")
 }
