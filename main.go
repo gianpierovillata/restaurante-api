@@ -24,5 +24,10 @@ func main() {
 		c.JSON(200, services.GetProveedores())
 	})
 
+	router.GET("/cartas", func(c *gin.Context) {
+
+		c.JSON(200, services.GetCartas())
+	})
+
 	router.Run()
 }
