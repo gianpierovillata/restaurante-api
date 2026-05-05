@@ -19,14 +19,10 @@ func main() {
 		c.JSON(200, services.GetComidas())
 	})
 
-	/* router.GET("/promociones", func(c *gin.Context) {
-		if len(services.GetPromociones()) == 0 {
-			c.JSON(404, gin.H{"message": "No se encontraron promociones"})
-			return
-		}
+	router.GET("/proveedores", func(c *gin.Context) {
 
-		c.JSON(200, services.GetPromociones())
-	}) */
+		c.JSON(200, services.GetProveedores())
+	})
 
 	router.Run()
 }
